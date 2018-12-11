@@ -8,6 +8,6 @@ Model using genre.ipynb-model built using genre as only feature
 
 Model using genre to adjust final pred.ipynb-model with final predictions being adjusted by genre
 
-Model using n-gram.ipynb-model using TF-IDF built using n-grams
+Model using n-gram.ipynb-model TF-IDF built using n-grams as features
 
-Model using 
+Model using topic models.ipynb-model with topic model as features
