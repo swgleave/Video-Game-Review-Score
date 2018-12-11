@@ -8,11 +8,14 @@ import lxml.html
 import time
 import csv
 
+#set options for web driver
 option = webdriver.ChromeOptions()
 option.add_argument(' — incognito')
 
+#use Chrome driver
 browser = webdriver.Chrome(executable_path='/Users/scottgleave/Documents/chromedriver', chrome_options=option)
 
+#go to website to extract links
 browser.get('https://www.ign.com/reviews/games')
 
 # Wait 20 seconds for page to load
@@ -24,12 +27,7 @@ except TimeoutException:
     print('Timed out waiting for page to load')
     browser.quit()
 
-
-
-
-
-
-#navigate to next page
+#navigate to next page by clicking next button
 count = 0
 while True:
     if count == 250:
@@ -46,36 +44,44 @@ while True:
         print(count)
     time.sleep(5)
 
+#find platform
 titles_element = browser.find_elements_by_xpath("//h3/a")
 platform = browser.find_elements_by_xpath("//h3/span")
 score = []
 
+#find scores,genre,date
 scores = browser.find_elements_by_xpath("//span[@class='scoreBox-score']")
 genre = browser.find_elements_by_xpath("//span[@class='item-genre']")
 date = browser.find_elements_by_xpath("//div[@class='grid_3']/div")
-
+#lists to hold scraped data
 platforms = []
 links = []
 genres = []
 dates = []
 count2 = 0
+
+#add links to list
 print('savings links')
 for elem in titles_element:
     count2 += 1
     links.append(elem.get_attribute("href"))
 
+#add scores to list
 print('saving scores')
 for elem in scores:
     score.append(elem.text)
 
+#add platforms to list
 print('saving platforms')
 for elem in platform:
     platforms.append(elem.text)
 
+#add genres to list
 print('saving genre')
 for elem in genre:
     genres.append(elem.text)
 
+#add dates to list
 print('saving dates')
 for elem in date:
     dates.append(elem.text)

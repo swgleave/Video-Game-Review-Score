@@ -6,17 +6,20 @@ import csv
 import numpy as np
 import pandas as pd
 
+#import links for webpage reviews
 linkpath = '/Users/scottgleave/Downloads/DataMiningCourse/finalprojectdata/links3.csv'
 df = pd.read_csv(linkpath, sep = ',', header = None)
 df.columns = ['link', 'rating', 'platform', 'genre', 'date']
 hreflist = df['link'].tolist()
 
 count = 0
+#function to scrape text
 def get_text(url, delay = None):
     global count
     base_url = url
     user_agent = {'User-agent': 'Mozilla/5.0'}
-    try:
+    #in case doesn't work
+    try: 
         response = requests.get(base_url, headers=user_agent)
 
         html_tree = etree.HTML(response.text)
@@ -38,7 +41,7 @@ def get_text(url, delay = None):
         return "null"
 
 
-
+#scrape review texts for all links and store in list
 texts = [get_text(x,1) for x in hreflist]
 
 #write to CSV
