@@ -6,4 +6,8 @@ Exploration and model testing.ipynb-includes exploration and best performing mod
 
 Model using genre.ipynb-model built using genre as only feature
 
-Model using genre to adjust pred.ipynb-model with final predictions being adjusted by genre
+Model using genre to adjust final pred.ipynb-model with final predictions being adjusted by genre
+
+Model using n-gram.ipynb-model using TF-IDF built using n-grams
+
+Model using 
