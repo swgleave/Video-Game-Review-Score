@@ -83,7 +83,7 @@ In addition to using the tf-idf as the input into the model, I tried incorporati
 
 One shortcoming of a tf-idf is that semantic meaning is lost while using this representation.  While a model built using tf-idf does have predictive power, it may be the case that models built upon other features would perform better.  In particular, using learned word embeddings would be an interesting avenue for future exploration.  
 
-Description of Python files and Jupyter notebooks:
+# Description of Python files and Jupyter notebooks:
 
 Exploration and model testing.ipynb-includes exploration and best performing models using TF-IDF
 
