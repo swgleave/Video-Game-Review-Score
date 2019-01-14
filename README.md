@@ -52,14 +52,55 @@ The reviews were written for games across a variety of platforms, with PC as the
 
 ## Data Pre-Processing for Tf-idf
 
-My goal was to build a model based primarily on a term frequency-inverse document frequency (tf-idf) representation of the corpus.  According to Wikipedia, "tf-idf is a numerical statistic that is intended to reflect how important a word is to a document in a collection or corpus...The tf–idf value increases proportionally to the number of times a word appears in the document and is offset by the number of documents in the corpus that contain the word, which helps to adjust for the fact that some words appear more frequently in general".  We will represent the tf-idf in a matrix, with each unique document (in this case different review) in its own row, and each unique word in its own column.  
+
+My models will be fit using the matrix as the feature and using the review score as the target.
+
+In order to create an effective tf-idf, I performed the following pre-processing steps:
+1)  Lowercase the text.  
+2)  Removing brackets from beginning and end of documents
+3)  Remove newline characters
+4)  Remove punctuation
+5)  Remove stopwords (using NLTK)
+6)  Removed common and uncommon words
+7)  Spelling correction (using textblob)
+8)  Lemmatization
+
+The primary purpose of these pre-processing steps is to clean the data set so that unhelpful characters are removed and the vocabulary of the corpus is refined. Words that are either rare or common will be removed from the dataset, as they most likely will only add unecessary noise to the model.  The steps of lowercasing, spelling correction, and lemmatization further reduce the number of unique words, as they remove redundancies from the corpus.
+
+## Feature Creation
+
+
+The primary feature I planned to use was a term frequency-inverse document frequency (tf-idf) representation of the corpus.  According to Wikipedia, "tf-idf is a numerical statistic that is intended to reflect how important a word is to a document in a collection or corpus...The tf–idf value increases proportionally to the number of times a word appears in the document and is offset by the number of documents in the corpus that contain the word, which helps to adjust for the fact that some words appear more frequently in general".  I will represent the tf-idf in a matrix, with each unique document (in this case different review) in its own row, and each unique word in its own column.  
 
 (INSERT EXAMPLE PHOTO)
 
-The goal of the tf-idf representation will be to create 
+Before creating the tf-idf, I split the dataset into a training and validation set.  I wanted to make sure the tf-idf that model is fit on was not influenced by the validation set.  There are a number of packages that exist to assist in the creation of a tf-idf.  I used the Gensim implementation, as I have found that it scales better than other implementations I have used.  Based on my cleaned training dataset, I used Gensim to create a dictionary, create a corpus, create a tf-idf, and apply the tf-idf to my corpus.  
+
+```python
+dictionary = corpora.Dictionary(texts)
+dictionary.filter_extremes(no_below=5, no_above=0.6, keep_n=10000)
+corpus = [dictionary.doc2bow(text) for text in texts]
+tfidf = models.TfidfModel(corpus)
+corpus_tfidf = tfidf[corpus]
+```
+I then followed the same steps for the validation set, with the exception of creating a tf-idf.  Instead I applied the tf-idf I created during from the training set to the validation corpus.  I then converted 
+
+## Modeling
+
+I wanted to try a couple of different types of machine learning algorithms to see what would work best to solve this problem.  The four approaches I settled on were a gradient boosted decision tree (using XGBoost), linear regression (OLS), Lasso regression, and a deep learning model with 5 fully-connected hidden layers (using Tensorflow).  Since I was trying to predict a continuous value, I used the regression implementations of XGBoost and Tensorflow.  The metric I decided to use to score my model was root mean square error (RMSE).  As a baseline, I computed the RMSE assuming I used the mean score for all reviews as the prediction.  Here are my cross-validated results:
+
+<img src="https://github.com/swgleave/sys6018-final-project/blob/master/images/Results.png" height="125" width="400">
+
+All models outperformed the baseline by at least 30%, indicating that machine learning models built using a tf-idf representation had some predictive ability.  
+
+Looking at error
+
+## Additional Approaches Tried
 
 
-I needed to prepare the raw text that I downloaded so it was formatted correctly.  
+
+
+## Future Ideas to Try
 
 
 
