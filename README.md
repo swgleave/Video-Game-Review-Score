@@ -93,15 +93,12 @@ I wanted to try a couple of different types of machine learning algorithms to se
 
 All models outperformed the baseline by at least 30%, indicating that machine learning models built using a tf-idf representation had some predictive ability.  
 
-Looking at error
+The deep learning and gradient boosted decision tree implementations that I used were fairly vanilla, and could probably be improved with additional experimentation.
 
-## Additional Approaches Tried
+## Additional Features Included
 
+In addition to using the tf-idf as the input into the model, I tried incorporating several other features, to see if I could improve performance.  I created a topic model using latent Dirichlet allocation and built a predictive model based on the output of the topic model.  This model had almost zero predictive value.  I also built a model using only the genre of the game to predict performance. This also had minimal predictive value.  I experimented with 2 and 3 word n-grams to build the tf-idf.  This added extra noise to the model and preformed worse than a single word tf-idf. 
 
+## Future Work
 
-
-## Future Ideas to Try
-
-
-
-
+One shortcoming of a tf-idf is that semantic meaning is lost while using this representation.  While a model built using tf-idf does have predictive power, it may be the case that models built upon other features would perform better.  In particular, using learned word embeddings would be an interesting avenue for future exploration.  
