@@ -36,26 +36,16 @@ min         1.500000
 75%         8.500000
 max        10.000000
 ```
-Along with the review scores and text, I scraped the genre of the game.  Here are the mean scores for the genres with the most reviews (sorted alphabetically):
+Along with the review scores and text, I scraped the genre of the game.  Action and Adventure are the most highly represented, followed by Shooter and RPG:
 
-```python
-Out[109]:
+<img src="https://github.com/swgleave/sys6018-final-project/blob/master/images/Reviews%20Per%20Platform.png" height="300" width="145">
 
-Action	          6.977104
-Action, Adventure	7.644262
-Adventure	        7.359877
-Platformer	      7.629341
-Puzzle	          7.615909
-RPG	              7.545263
-Shooter	          7.162222
-Simulation	      6.900000
-Sports	          7.328777
-Strategy	        7.479661
-```
 These reviews were written from 2010 to 2018.  The mean score has increased over time, while the number of reviews written has decreased:
 
 <img src="https://github.com/swgleave/sys6018-final-project/blob/master/images/Average%20Review%20Score%20-%20Time.png" height="300" width="400">
 
-```python
-print "Hello World"
-```
+<img src="https://github.com/swgleave/sys6018-final-project/blob/master/images/Number%20Reviews%20-%20Time.png" height="300" width="400">
+
+The reviews were written for games across a variety of platforms, with PC as the mostly highly represented, followed by Playstation 3 and Playstation 4:
+
+
