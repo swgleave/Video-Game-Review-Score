@@ -1,23 +1,3 @@
-# sys6018-final-project
-
-Description of Python files and Jupyter notebooks:
-
-Exploration and model testing.ipynb-includes exploration and best performing models using TF-IDF
-
-Model using genre.ipynb-model built using genre as only feature
-
-Model using genre to adjust final pred.ipynb-model with final predictions being adjusted by genre
-
-Model using n-gram.ipynb-model TF-IDF built using n-grams as features
-
-Model using topic models.ipynb-model with topic model as features
-
-scrapereviewlinks.py-code to scrape links to reviews
-
-scrapereviewpage.py-code to scrape text from review page
-
-
-
 # Predicting Video Game Review Scores Using Tf-idf 
 
 Video game reviews are either text or video based, and are often accompanied by a score, indicating the reviewer's overall opinion on the quality of the game.  I wanted to examine text based reviews, to see if I could build a model that predicts a review score based on text features.  I scraped 2,903 reviews from the video game website IGN.com to use as my corpus, along with the review score for each review.
@@ -102,3 +82,21 @@ In addition to using the tf-idf as the input into the model, I tried incorporati
 ## Future Work
 
 One shortcoming of a tf-idf is that semantic meaning is lost while using this representation.  While a model built using tf-idf does have predictive power, it may be the case that models built upon other features would perform better.  In particular, using learned word embeddings would be an interesting avenue for future exploration.  
+
+Description of Python files and Jupyter notebooks:
+
+Exploration and model testing.ipynb-includes exploration and best performing models using TF-IDF
+
+Model using genre.ipynb-model built using genre as only feature
+
+Model using genre to adjust final pred.ipynb-model with final predictions being adjusted by genre
+
+Model using n-gram.ipynb-model TF-IDF built using n-grams as features
+
+Model using topic models.ipynb-model with topic model as features
+
+scrapereviewlinks.py-code to scrape links to reviews
+
+scrapereviewpage.py-code to scrape text from review page
+
+
