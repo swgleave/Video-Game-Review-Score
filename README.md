@@ -36,6 +36,25 @@ min         1.500000
 75%         8.500000
 max        10.000000
 ```
+Along with the review scores and text, I scraped the genre of the game.  Here are the mean scores for the genres with the most reviews (sorted alphabetically):
+
+```python
+Out[109]:
+
+Action	6.977104
+Action, Adventure	7.644262
+Adventure	7.359877
+Platformer	7.629341
+Puzzle	7.615909
+RPG	7.545263
+Shooter	7.162222
+Simulation	6.900000
+Sports	7.328777
+Strategy	7.479661
+```
+These reviews were written from 2010 to 2018.  The mean score has increased over time, while the number of reviews written has decreased:
+
+
 
 ```python
 print "Hello World"
