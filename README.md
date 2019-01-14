@@ -75,7 +75,7 @@ All models outperformed the baseline by at least 30%, indicating that machine le
 
 The deep learning and gradient boosted decision tree implementations that I used were fairly vanilla, and could probably be improved with additional experimentation.
 
-## Additional Features Included
+## Additional Experiments
 
 In addition to using the tf-idf as the input into the model, I tried incorporating several other features, to see if I could improve performance.  I created a topic model using latent Dirichlet allocation and built a predictive model based on the output of the topic model.  This model had almost zero predictive value.  I also built a model using only the genre of the game to predict performance. This also had minimal predictive value.  I experimented with 2 and 3 word n-grams to build the tf-idf.  This added extra noise to the model and preformed worse than a single word tf-idf. 
 
