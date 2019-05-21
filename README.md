@@ -47,7 +47,7 @@ In order to create an effective tf-idf, I performed the following pre-processing
 
 The primary purpose of these pre-processing steps is to clean the data set so that unhelpful characters are removed and the vocabulary of the corpus is refined. Words that are either rare or common will be removed from the dataset, as they most likely will only add unecessary noise to the model.  The steps of lowercasing, spelling correction, and lemmatization further reduce the number of unique words, as they remove redundancies from the corpus.
 
-## Feature Creation
+## Feature Engineering
 
 
 The primary feature I planned to use was a term frequency-inverse document frequency (tf-idf) representation of the corpus.  According to Wikipedia, "tf-idf is a numerical statistic that is intended to reflect how important a word is to a document in a collection or corpus...The tf–idf value increases proportionally to the number of times a word appears in the document and is offset by the number of documents in the corpus that contain the word, which helps to adjust for the fact that some words appear more frequently in general".  I will represent the tf-idf in a matrix, with each unique document (in this case different review) in its own row, and each unique word in its own column.  
