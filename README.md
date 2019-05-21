@@ -52,8 +52,6 @@ The primary purpose of these pre-processing steps is to clean the data set so th
 
 The primary feature I planned to use was a term frequency-inverse document frequency (tf-idf) representation of the corpus.  According to Wikipedia, "tf-idf is a numerical statistic that is intended to reflect how important a word is to a document in a collection or corpus...The tf–idf value increases proportionally to the number of times a word appears in the document and is offset by the number of documents in the corpus that contain the word, which helps to adjust for the fact that some words appear more frequently in general".  I will represent the tf-idf in a matrix, with each unique document (in this case different review) in its own row, and each unique word in its own column.  
 
-(INSERT EXAMPLE PHOTO)
-
 Before creating the tf-idf, I split the dataset into a training and validation set.  I wanted to make sure the tf-idf that model is fit on was not influenced by the validation set.  There are a number of packages that exist to assist in the creation of a tf-idf.  I used the Gensim implementation, as I have found that it scales better than other implementations I have used.  Based on my cleaned training dataset, I used Gensim to create a dictionary, create a corpus, create a tf-idf, and apply the tf-idf to my corpus.  
 
 ```python
