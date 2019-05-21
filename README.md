@@ -61,7 +61,7 @@ corpus = [dictionary.doc2bow(text) for text in texts]
 tfidf = models.TfidfModel(corpus)
 corpus_tfidf = tfidf[corpus]
 ```
-I then followed the same steps for the validation set, with the exception of creating a tf-idf.  Instead I applied the tf-idf I created during from the training set to the validation corpus.  I then converted 
+I then followed the same steps for the validation set, with the exception of creating a tf-idf.  Instead I applied the tf-idf I created during from the training set to the validation corpus. 
 
 ## Modeling
 
